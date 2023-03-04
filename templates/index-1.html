@@ -1,0 +1,672 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive bootstrap landing template">
+    <meta name="author" content="Themesdesign">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+    <title>Slima | Responsive Bootstrap Landing Template</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- tiny slider -->
+    <link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type="text/css" />
+
+
+    <!-- Materialdesign icons css -->
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
+
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+        <div class="container-fluid custom-container">
+            <a class="navbar-brand logo text-uppercase" href="{% url 'home'%}">
+                <img src="{{info.logo.url}}" class="logo-light" alt="" height="32">
+                <!-- <img src="images/logo-light.png" class="logo-dark" alt="" height="28"> -->
+            </a>
+
+            <button class="navbar-toggler me-3 order-2 ms-4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mx-auto navbar-center">
+                    <li class="nav-item">
+                        <a href="{% url 'home'%}" class="nav-link ">Home</a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a href="{% url 'service'%}" class="nav-link ">Service</a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a href="{% url 'features'%}" class="nav-link ">Features</a>
+                    </li>
+
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a href="{% url 'user' %}" class="nav-link ">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'pricing'%}" class="nav-link">pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'faq'%}" class="nav-link">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog'%}" class="nav-link">Blog</a>
+                    </li>
+                    
+                </ul>
+                <!--end navbar-nav-->
+            </div>
+
+
+            <!--end navabar-collapse-->
+            
+            <!--end header-menu-->
+        </div>
+        <!--end container-->
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3 needs-validation">
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">First name <span
+                                    class="text-primary">*</span></label>
+                            <input type="text" class="form-control" id="validationCustom01" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationCustom02" class="form-label">Email <span
+                                    class="text-primary">*</span></label>
+                            <input type="email" class="form-control" id="validationCustom02" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationCustom03" class="form-label">Subject <span
+                                    class="text-primary">*</span></label>
+                            <input type="text" class="form-control" id="validationCustom03" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationCustom05" class="form-label">Password <span
+                                    class="text-primary">*</span></label>
+                            <input type="password" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="validationTextarea" class="form-label">Textarea<span
+                                    class="text-primary">*</span></label>
+                            <textarea class="form-control" id="validationTextarea" required></textarea>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end modal -->
+
+
+    <!-- start home section -->
+    <section class="home" id="home">
+        <div class="container" id="ani-round">
+            <div class="home-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="title mt-5 mt-lg-0">
+                            {{view.title1}}
+                        </h2>
+                        <p class="f-16 my-4 text-muted">{{view.text1}}</p>
+                        <button class="btn btn-primary"><i class="mdi mdi-cloud-download f-20 align-middle me-2"></i>
+                            Download free guide</button>
+
+                        <div class="get-link mt-4">
+                            <a href="" class="text-primary font-weight-600 f-14"><span
+                                    class="text-muted font-weight-500">Have questions?</span><span>Get Free From<i
+                                        class="mdi mdi-arrow-right"></i></span> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-5">
+                        <div class="animation-image" id="home-animation">
+                            <div class="main-image mt-5 mt-lg-0 ms-lg-5 position-relative">
+                                <img src="{% static 'images/home/home-bg.png' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end section -->
+
+
+    <!-- client section -->
+    <section class="section pt-0 clients">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="client-slider text-center">
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo1.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo2.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo3.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo4.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo5.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo6.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo7.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo8.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo9.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="tiny-slide">
+                            <img src="{{logo.logo10.url}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <!--end client-slider-->
+                </div>
+                <!--end col-->
+            </div>
+        </div>
+    </section>
+    <!-- end section -->
+
+
+    <!-- start service -->
+    <section class="section bg-light" id="service">
+        <div class="container">
+            <div class="row justify-content-center mb-4 pb-2">
+                <div class="col-lg-6">
+                    <div class="heading text-center">
+                        <h6 class="text-muted f-16 fw-normal">{{project_text.mini_text}}</h6>
+                        <h2 class="mb-3">{{project_text.title}}
+                        </h2>
+                        <p class="text-muted para-p mx-auto mb-0">{{project_text.text}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for i in project%}
+                
+                <div class="col-lg-4 mt-4 pt-2">
+                   
+                    <div class="service-box text-center text-lg-start">
+                        <div class="service-image">
+                            <img src="{{i.img1.url}}" alt="img-fluid">
+                        </div>
+                        <h5 class="fw-bold mt-4 mb-3">{{i.title1}}</h5>
+                        <p>{{i.text1}}</p>
+                        <div class="button-link mt-2">
+                            <a href="{% url 'user'%}" class="f-14 fw-bold">{{i.texts1}} <i
+                                    class="mdi mdi-arrow-right align-middle"></i></a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                {%endfor%}
+    </section>
+    <!-- end service -->
+
+    <!-- start features -->
+    
+    <section class="section " id="features">
+        <div class="container">
+            <div class="row align-items-center" id="part1">
+                <div class="col-lg-7">
+                    <div class="sec-image position-relative " id="sec-image">
+                        <div class="bg-img overflow-hidden border-radius">
+                            <img src="{{i.img.url}}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div id="imgcontainer-1">
+                            <div id="inner-2">
+                                <div class="demo-img">
+                                    <div class="demo-overlay">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 mt-5 mt-lg-0">
+                    <h6 class="text-muted fw-normal"><span class="fw-bold">{{about.first_title1}}</span></h6>
+                    <h1 class="fw-bold mt-2">{{about.title1}}</h1>
+                    <p class="mt-3">{{about.text1}}</p>
+                    <div class="get-link mt-4">
+                        <a href="" class="text-primary font-weight-600"> {{about.download}} <i
+                                class="mdi mdi-arrow-right"></i></a>
+                    </div>
+
+                </div>
+               
+            </div>
+
+            
+
+        <div class="modal fade bd-example-modal-lg" id="watchvideomodal" data-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+                <div class="modal-content hero-modal-0 bg-transparent">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <video id="VisaChipCardVideo" class="w-100" controls="">
+                        <source src="{{about.youtube}}" type="video/mp4">
+                        <!--Browser does not support <video> tag -->
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end features -->
+
+
+    <!-- start testimonial -->
+    <section class="section testi-slider position-relative" id="user">
+        <div class="container-fluid">
+            <div class="section-bottom-shape-two">
+                <img src="{% static 'images/features/shape.png' %}" alt="">
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-lg-8">
+                    <div class="heading text-center">
+                        <h6 class="text-muted f-16 fw-normal">{{communyte.impor_title2}}</h6>
+                        <h2 class="mb-3">Better<span class="text-primary fw-normal">{{communyte.impor_text2}}
+                        <p class="text-muted para-p mx-auto mb-0">{{communyte.impor_text3}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider main container -->
+            
+           
+            <div class="swiper-container mt-5 pb-5">
+                <div class="swiper-wrapper">
+                   
+                   
+                    <div class="swiper-slide border-radius">
+                        {%for i in communyte%}
+                        <h5 class="mb-4 text-black">{{i.titles1}}</h5>
+                        <p class="f-16 text-muted">{{i.texts1}}
+                        </p>
+                        <div class="d-flex align-items-center mt-4 pt-3">
+                            <div class="flex-shrink-0">
+                                <div class="user-image">
+                                    <img src="{{i.imgs1.url}}" alt="" class="avatar-lg rounded-circle">
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3 ">
+                                <div class="user-info">
+                                    <h6 class="text-black">{{i.names1}}</h6>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                    
+    <!-- end features -->
+
+
+    <!-- start testimonial -->
+    
+            <!-- Slider main container -->
+            
+
+                <!-- navigation buttons -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- end section -->
+
+
+    <!-- start cta -->
+    <section class="cta section" id="cta-ani">
+        <div class="cta-image position-relative">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center">
+                            <h5 class="text-dark ">{{suppor.impor_title}} </h5>
+                            <h2 class="mt-3 fw-bold">{{suppor.impor_text}}</h2>
+                            <button class=" btn-lg btn-primary mt-4 f-14">Get started for free</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end cta -->
+
+
+
+
+    <!-- counter section-->
+    <section class="counter ">
+        <div class="container">
+            <div class="row" id="counter">
+                {% for i in suppor%}
+                <div class="col-lg-3 p-lg-0">
+                    <div class="counter-box py-0 py-lg-5 text-center position-relative">
+                        <div class="side-border-left"></div>
+                        <div class="py-5 pb-0">
+                            <div class="counter-image">
+                                <img src="{{i.img1.url}}" alt="">
+                            </div>
+                            <h2 class="counter_value fw-bold mt-2 text-primary" data-bs-target="{{i.numers1}}">{{i.numers1}}</h2>
+                            <h5 class="counter-caption mb-0 mt-3">{{i.title1}}</h5>
+                        </div>
+                        <div class="side-border-right"></div>
+                    </div>
+                </div>
+                <!-- end col -->
+                {%endfor%}
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- end counter -->
+
+
+    <!-- pricing section -->
+    
+    <!-- end pricing -->
+
+
+    <!-- start faq  -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box text-center">
+                        <h6 class="text-muted fw-normal">{{frequently_text.title}}</h6>
+                        <h2 class="mb-3">Our <span class="text-primary fw-normal">{{frequently_text.text}}</h2>
+                        <p class="text-muted para-p mx-auto mb-0">{{frequently_text.title2}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <div class="accordion mt-5" id="accordionExample">
+                        <div class="faq-collaps faq-collaps-2">
+                            <!-- start 1 -->
+                            
+                            <div class="card mt-4">
+                                {% for i in frequently%}
+                                <a data-bs-toggle="collapse" href="#collapse-{{i.id}}" class="faq collapsed">
+                                    <div class="card-header p-4" id="heading1">
+                                        <h5 class="mb-0 text-dark">{{i.question}}</h5>
+                                    </div>
+                                </a>
+                                <div id="collapse-{{i.id}}" class="collapse show" aria-labelledby="heading1"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body pt-1">
+                                        <p class="mb-0 text-muted">{{i.ansver}}</p>
+                                    </div>
+                                </div>
+                                {% endfor%}
+                            </div>
+                            
+                            <!-- end 1 -->
+
+                            
+                            
+                            <!-- end 4 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{frequently_text.imges.url}}" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- end faq -->
+
+
+    <!-- start blog -->
+    <section class="section bg-light" id="blog">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center">
+                        <h6 class="text-muted fw-normal">Latest on Our Blogs</h6>
+                        <h2 class="mb-3">Increase <span class="text-primary fw-normal">conversion </span>with help our
+                            images</h2>
+                        <p class="text-muted para-p mx-auto mb-0"> ratione iure laborum, voluptatum iusto pariatur ipsa
+                            vero debitis dolore, eaque natus, itaque perferendis eveniet voluptatem omnis nemo.</p>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="row mt-5">
+                {% for i in conversion%}
+                <div class="col-lg-4 col-md-6 mt-4 mt-2">
+                    <div class="blog-image overflow-hidden">
+                        <img src="{{i.img.url}}" alt="" class="img-fluid w-100">
+                    </div>
+                    <div class="blog-content mb-2">
+                        <a href="">
+                            <h6 class="mt-4 mb-2 text-uppercase f-14">{{i.text}}</h6>
+                        </a>
+                        <a href="">
+                            <h4>{{i.title}}</h4>
+                        </a>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="d-flex align-items-center text-muted">
+                            <i class="mdi mdi-account-outline f-22 "></i>
+                            <p class="mb-0 ms-2">{{i.name}}</p>
+                        </div>
+                        <div class="d-flex align-items-center text-muted ms-4">
+                            <i class="mdi mdi-calendar-blank f-22 "></i>
+                            <p class="mb-0 ms-2">{{i.date}}</p>
+                        </div>
+                    </div>
+                    <div class="blog-link">
+                        <a href="" class="fw-bold f-14">Read more <i class="mdi mdi-arrow-right align-middle"></i></a>
+                    </div>
+                </div>
+                {%endfor%}
+    </section>
+    <!-- end blog -->
+
+
+
+    <!-- start cta -->
+    <section id="subscribe" class="section cta-2">
+        <div class="cta-image position-relative " id="cta-footer">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center">
+                            <h2 class="fw-bold">Sign up for our <span class="text-primary fw-normal">Newsletters</span>
+                            </h2>
+                            <p class="f-16 cta-title mt-4 mb-2">Subscribe To Our Newsletter For New Content,
+                                Update And Giveaways!</p>
+                            <p class="f-16 cta-title">Subscribe & get all related jobs notification.</p>
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <form class="subscribe-form mt-4" action="#">
+                                        <div class="input-group justify-content-center">
+                                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="name@example.com">
+                                            <button class="btn btn-primary" type="button"
+                                                id="subscribebtn">Subscribe</button>
+                                        </div>
+                                        <p class="f-14 mt-2">Please complete this required field.</p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end cta -->
+
+
+    <!-- start footer -->
+    <section class="footer py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="address-content fw-bold">
+                        <h5 class="text-black">{{info.adress_title}}</h5>
+                        <p class="mt-5  f-14 ">{{info.adress_text}}</p>
+                        <p class="mt-3 f-14 ">{{info.tel}} {{info.time}}</p>
+                        <a href="" class=" f-14">{{info.email}}</a>
+                    </div>
+                    <div class="social-icon d-flex mt-4 mb-4 mb-lg-0">
+                        <div class="facebook">
+                            <a href="{{info.facebooke}}"><i class="mdi mdi-facebook-box f-30"></i></a>
+                        </div>
+                        <div class="twitter ms-4">
+                            <a href="{{info.twetter}}"><i class="mdi mdi-twitter f-30"></i></a>
+                        </div>
+                        <div class="twitter ms-4">
+                            <a href="{{info.instagram}}"><i class="mdi mdi-instagram f-30"></i></a>
+                        </div>
+                        <div class="twitter ms-4">
+                            <a href="{{info.linked}}"><i class="mdi mdi-linkedin-box f-30"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+    <!-- end footer -->
+
+    <div class="bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="copy-right mb-5 text-center text-muted">
+                        <script>document.write(new Date().getFullYear())</script> <span class="fw-bold">Slima</span> .
+                        Design with <i class="mdi mdi-heart text-danger"></i>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+
+    <!-- counter -->
+    <script src="{% static 'js/counter.init.js' %}"></script>
+
+    <!-- Custom -->
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <script>
+            (function () {
+                // Add event listener
+                document.addEventListener("mousemove", parallax);
+                const elem = document.querySelector("#home-animation");
+                // Magic happens here
+                function parallax(e) {
+                    let _w = window.innerWidth / 2;
+                    let _h = window.innerHeight / 2;
+                    let _mouseX = e.clientX;
+                    let _mouseY = e.clientY;
+                    let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+                    let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+                    let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+                    let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+                    elem.style.backgroundPosition = x;
+                }
+
+            })();
+
+    </script>
+    <script>
+        (function () {
+            // Add event listener
+            document.addEventListener("mousemove", parallax);
+            const elem = document.querySelector("#ani-round");
+            // Magic happens here
+            function parallax(e) {
+                let _w = window.innerWidth / 2;
+                let _h = window.innerHeight / 2;
+                let _mouseX = e.clientX;
+                let _mouseY = e.clientY;
+                let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+                let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+                let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+                let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+                elem.style.backgroundPosition = x;
+            }
+
+        })();
+
+    </script>
+
+</body>
+
+</html>
